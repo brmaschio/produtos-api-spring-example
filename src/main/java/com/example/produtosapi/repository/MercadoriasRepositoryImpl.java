@@ -24,10 +24,18 @@ public class MercadoriasRepositoryImpl implements MercadoriasRepositoryQuery {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public Page<Mercadoria> findAllByOrderByProduto(Pageable pageable, String produto) {
+	public Page<Mercadoria> findAllByOrderByProduto(Pageable pageable, String produto, String mercado) {
 		
-		String queryStr = "SELECT T1.* FROM MERCADORIA AS T1 INNER JOIN PRODUTO AS T2 ON T1.CODIGOPRODUTO = T2.ID";
-		String countQuery = "SELECT COUNT(T1.ID) FROM MERCADORIA AS T1 INNER JOIN PRODUTO AS T2 ON T1.CODIGOPRODUTO = T2.ID";
+		String queryStr = "SELECT T1.* FROM MERCADORIA AS T1\n";
+		String countQuery = "SELECT COUNT(T1.ID) FROM MERCADORIA AS T1\n";
+		
+		String filterQuery = "INNER JOIN PRODUTO AS T2 ON T1.CODIGOPRODUTO = T2.ID\n" + 
+				"INNER JOIN MERCADO AS T3 ON T1.CODIGOMERCADO = T3.ID\n" + 
+				"WHERE (T3.NOME LIKE '%" +  mercado + "%' OR T3.NOMEFANTASIA LIKE '%" + mercado + "%' ) " + 
+				"AND T2.NOME LIKE '%" + produto + "%'";
+		
+		queryStr = queryStr + filterQuery;
+		countQuery = countQuery + filterQuery;
 		
 		GenericQueryResult resultado = genericQuery.gerarSelectPaginado(queryStr, countQuery, pageable, Mercadoria.class);
 		

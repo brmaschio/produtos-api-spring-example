@@ -50,6 +50,14 @@ public class MercadosService {
 		
 	}
 	
+	public Mercado atualizarStatus(Long id) {
+		
+		Mercado mercadoSalvo = buscaPeloCodigo(id);
+		mercadoSalvo.habilitaDesabilita();
+		
+		return repository.save(mercadoSalvo);
+	}
+	
 	private Mercado buscaPeloCodigo(Long codigo) {
 		
 		Optional<Mercado> mercadoSalvo = repository.findById(codigo);
@@ -60,5 +68,6 @@ public class MercadosService {
 		
 		return mercadoSalvo.get();
 	}
+
 	
 }

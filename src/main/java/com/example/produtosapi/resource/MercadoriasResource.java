@@ -32,9 +32,11 @@ public class MercadoriasResource {
 	private MercadoriasRepository repository;
 	
 	@GetMapping
-	public Page<Mercadoria> listarMercadorias(@RequestParam(required = false, defaultValue = "") String produto, Pageable pageable){
+	public Page<Mercadoria> listarMercadorias(Pageable pageable, 
+			@RequestParam(required = false, defaultValue = "") String produto, 
+			@RequestParam(required = false, defaultValue = "") String mercado){
 		
-		return repository.findAllByOrderByProduto(pageable, produto);
+		return repository.findAllByOrderByProduto(pageable, produto, mercado);
 		
 	}
 	

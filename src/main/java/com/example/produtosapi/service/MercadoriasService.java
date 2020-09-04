@@ -75,6 +75,15 @@ public class MercadoriasService {
 	
 	}
 	
+	public Mercadoria atualizarStatus(Long id) {
+		
+		Mercadoria mercadoriaSalvo = buscaPeloCodigo(id);
+		
+		mercadoriaSalvo.habilitaDesabilita();
+		
+		return repository.save(mercadoriaSalvo);
+	}
+	
 	private void gerarHistorico(Mercadoria mercadoria) {
 		
 		HistoricoMercadoria historico = new HistoricoMercadoria();
