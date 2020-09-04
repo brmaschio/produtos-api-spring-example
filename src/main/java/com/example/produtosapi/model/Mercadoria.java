@@ -70,6 +70,10 @@ public class Mercadoria {
 		this.dataAtualizacaoComp = data;
 	}
 	
+	public void habilitaDesabilita() {
+		this.habilitado = !this.habilitado;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

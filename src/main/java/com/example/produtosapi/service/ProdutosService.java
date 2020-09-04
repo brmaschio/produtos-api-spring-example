@@ -57,6 +57,15 @@ public class ProdutosService {
 		
 	}
 	
+	public Produto atualizarStatus(Long id) {
+		
+		Produto produtoSalvo = buscaPeloCodigo(id);
+		
+		produtoSalvo.habilitaDesabilita();
+		
+		return repository.save(produtoSalvo);
+	}
+	
 	private Produto validarCategoria(Produto produto) throws UserExceptions {
 		
 		Optional<Categoria> categoria = categoriasRepository.findById(produto.getCategoria().getId());

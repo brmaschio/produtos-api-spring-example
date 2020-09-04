@@ -60,6 +60,12 @@ public class Produto {
 	public Categoria getCategoria() {return categoria;}
 	public void setCategoria(Categoria categoria) {this.categoria = categoria;}
 	
+	public void habilitaDesabilita() {
+		
+		this.status = this.status.equals(Status.ATIVO) ? Status.INATIVO : Status.ATIVO;
+		
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

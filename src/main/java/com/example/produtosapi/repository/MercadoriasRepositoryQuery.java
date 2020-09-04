@@ -7,6 +7,6 @@ import com.example.produtosapi.model.Mercadoria;
 
 public interface MercadoriasRepositoryQuery {
 
-	Page<Mercadoria> findAllByOrderByProduto(Pageable pageable, String produto);
+	Page<Mercadoria> findAllByOrderByProduto(Pageable pageable, String produto, String mercado);
 	
 }

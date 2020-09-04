@@ -64,6 +64,11 @@ public class Mercado {
 	public String getImagem() {return imagem;}
 	public void setImagem(String imagem) {this.imagem = imagem;}
 	
+	public void habilitaDesabilita() {
+		
+		this.status = this.status.equals(Status.ATIVO) ? Status.INATIVO : Status.ATIVO;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
