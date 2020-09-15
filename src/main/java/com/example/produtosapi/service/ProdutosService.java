@@ -84,7 +84,7 @@ public class ProdutosService {
 		
 		Optional<Produto> produtoSalvo = repository.findById(codigo);
 		
-		if(!produtoSalvo.isPresent()) {
+		if(!produtoSalvo.isPresent() || produtoSalvo.get().getStatus().equals(Status.DELETADO)) {
 			throw new EmptyResultDataAccessException(1);
 		}
 		

@@ -19,7 +19,7 @@ public class Logradouro {
 	private String cep;
 	private String cidade;
 	private String estado;
-	private List<String> telefones = new ArrayList<String>();;
+	private List<String> telefones = new ArrayList<String>();
 	
 	@Column( name="ENDERECO" )
 	public String getEndereco() {return endereco;}
