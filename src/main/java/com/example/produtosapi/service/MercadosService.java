@@ -62,7 +62,7 @@ public class MercadosService {
 		
 		Optional<Mercado> mercadoSalvo = repository.findById(codigo);
 		
-		if(!mercadoSalvo.isPresent()) {
+		if(!mercadoSalvo.isPresent() || mercadoSalvo.get().getStatus().equals(Status.DELETADO)) {
 			throw new EmptyResultDataAccessException(1);
 		}
 		

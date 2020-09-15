@@ -18,12 +18,12 @@ public class StringListConverter implements AttributeConverter<List<String>, Str
 	@Override
 	public List<String> convertToEntityAttribute(String dbData) {
 
-		if(dbData != null) {
+		if(dbData != null && !dbData.trim().isEmpty()) {
 			
 			return new ArrayList<>(Arrays.asList(dbData.split(",")));	
 		}
 		
-		return null;
+		return new ArrayList<String>();
 
 	}
 
