@@ -13,7 +13,7 @@
 
 	<groupId>com.example</groupId>
 	<artifactId>produtos-api</artifactId>
-	<version>1.0.2</version>
+	<version>1.1.0</version>
 	<name>produtos-api</name>
 	<description>Projeto De Exemplo Spring Boot</description>
 
@@ -82,6 +82,24 @@
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
+		</dependency>
+		<!-- jwt -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-jwt</artifactId>
+			<version>1.0.9.RELEASE</version>
+		</dependency>
+		<!-- Spring Security -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
+		</dependency>		
+		<!-- oauth2 -->
+		<dependency>
+			<groupId>org.springframework.security.oauth</groupId>
+			<artifactId>spring-security-oauth2</artifactId>
+			<version>2.3.3.RELEASE</version>
 		</dependency>
 
 	</dependencies>
