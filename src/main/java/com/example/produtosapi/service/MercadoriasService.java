@@ -55,10 +55,11 @@ public class MercadoriasService {
 		mercadoria.setMercado(mercadoSalvo.get());
 		mercadoria.setProduto(produtoSalvo.get());
 		
+		mercadoria =  repository.save(mercadoria);
+		
 		gerarHistorico(mercadoria);
 		
-		return repository.save(mercadoria);
-		
+		return mercadoria;
 	}
 
 	public Mercadoria atualizar(Long id, Mercadoria mercadoria) throws UserExceptions {
@@ -68,10 +69,12 @@ public class MercadoriasService {
 		BeanUtils.copyProperties(mercadoria, mercadoriaSalvo, "id", "mercado", "produto");
 		
 		mercadoriaSalvo.setDatas(new Date());
+				
+		mercadoriaSalvo = repository.save(mercadoriaSalvo);
 		
 		gerarHistorico(mercadoriaSalvo);
 		
-		return repository.save(mercadoriaSalvo);
+		return mercadoriaSalvo;
 	
 	}
 	
